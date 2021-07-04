@@ -9,6 +9,10 @@ class ExternalInputData extends ChangeNotifier {
     data = inputData;
     notifyListeners();
   }
+
+  void resetData() {
+    data = 0;
+  }
 }
 
 class ExternalOutputData extends ChangeNotifier {
@@ -17,6 +21,10 @@ class ExternalOutputData extends ChangeNotifier {
   void setData(int inputData) {
     data = inputData;
     notifyListeners();
+  }
+
+  void resetData() {
+    data = 0;
   }
 }
 
@@ -27,6 +35,10 @@ class ExternalInquiryData extends ChangeNotifier {
     data = inputData;
     notifyListeners();
   }
+
+  void resetData() {
+    data = 0;
+  }
 }
 
 class ExternalInterfaceFileData extends ChangeNotifier {
@@ -35,6 +47,10 @@ class ExternalInterfaceFileData extends ChangeNotifier {
   void setData(inputData) {
     data = inputData;
     notifyListeners();
+  }
+
+  void resetData() {
+    data = 0;
   }
 }
 
@@ -45,6 +61,10 @@ class InternalLogicalFileData extends ChangeNotifier {
     data = inputData;
     notifyListeners();
   }
+
+  void resetData() {
+    data = 0;
+  }
 }
 
 class ProjectComplexityData extends ChangeNotifier {
@@ -54,6 +74,10 @@ class ProjectComplexityData extends ChangeNotifier {
     data = inputData;
     notifyListeners();
   }
+
+  void resetData() {
+    data = 1;
+  }
 }
 
 class ComplexityFactorsData extends ChangeNotifier {
@@ -62,6 +86,12 @@ class ComplexityFactorsData extends ChangeNotifier {
   void setData(double inputData, int index) {
     complexityValuesList[index] = inputData;
     notifyListeners();
+  }
+
+  void resetData() {
+    for (int item = 0; item < complexityValuesList.length; item++) {
+      complexityValuesList[item] = 2;
+    }
   }
 }
 
@@ -80,6 +110,10 @@ class ProjectTypeData extends ChangeNotifier {
   void setData(int inputData) {
     data = inputData;
     notifyListeners();
+  }
+
+  void resetData() {
+    data = 3;
   }
 }
 
@@ -102,6 +136,13 @@ class ProductAttributesData extends ChangeNotifier {
     }
     return caf;
   }
+
+  void resetData() {
+    for (int item = 0; item < attributeValuesList.length; item++) {
+      attributeValuesList[item] = 1;
+      attributeLabelList[item] = "Nominal";
+    }
+  }
 }
 
 class HardwareAttributesData extends ChangeNotifier {
@@ -122,6 +163,13 @@ class HardwareAttributesData extends ChangeNotifier {
       caf = caf * attributeValuesList[i];
     }
     return caf;
+  }
+
+  void resetData() {
+    for (int item = 0; item < attributeValuesList.length; item++) {
+      attributeValuesList[item] = 1;
+      attributeLabelList[item] = "Nominal";
+    }
   }
 }
 
@@ -144,6 +192,13 @@ class PersonalAttributesData extends ChangeNotifier {
     }
     return caf;
   }
+
+  void resetData() {
+    for (int item = 0; item < attributeValuesList.length; item++) {
+      attributeValuesList[item] = 1;
+      attributeLabelList[item] = "Nominal";
+    }
+  }
 }
 
 class ProjectAttributesData extends ChangeNotifier {
@@ -164,6 +219,13 @@ class ProjectAttributesData extends ChangeNotifier {
       caf = caf * attributeValuesList[i];
     }
     return caf;
+  }
+
+  void resetData() {
+    for (int item = 0; item < attributeValuesList.length; item++) {
+      attributeValuesList[item] = 1;
+      attributeLabelList[item] = "Nominal";
+    }
   }
 }
 
