@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
-import 'package:software_estimation/screens/_temp/result.dart';
-import 'package:software_estimation/screens/_temp/test.dart';
-import 'package:software_estimation/screens/primary_screens/project_blocks_screen.dart';
-import 'package:software_estimation/screens/primary_screens/home_projects.dart';
-import 'package:software_estimation/screens/secondary_screens/fp_input_primary.dart';
-import 'package:software_estimation/screens/secondary_screens/fp_input_secondary.dart';
-import 'package:software_estimation/screens/tertiary_screens/effort_primary.dart';
-import 'package:software_estimation/screens/tertiary_screens/hardware_attributes.dart';
-import 'package:software_estimation/screens/tertiary_screens/personal_attributes.dart';
-import 'package:software_estimation/screens/tertiary_screens/product_attributes.dart';
-import 'package:software_estimation/screens/tertiary_screens/project_attributes.dart';
+import 'interface/_temp/result.dart';
+import 'interface/primary/screens/home_projects.dart';
+import 'interface/primary/screens/project_blocks_screen.dart';
+import 'interface/secondary/screens/fp_input_primary.dart';
+import 'interface/secondary/screens/fp_input_secondary.dart';
+import 'interface/tertiary/screens/effort_primary.dart';
+import 'interface/tertiary/screens/hardware_attributes.dart';
+import 'interface/tertiary/screens/personal_attributes.dart';
+import 'interface/tertiary/screens/product_attributes.dart';
+import 'interface/tertiary/screens/project_attributes.dart';
 
 void main() {
   //final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
