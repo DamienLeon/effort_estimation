@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color kActiveColor = Colors.green;
+const Color kActiveColor = Colors.teal;
 const Color kInactiveColor = Colors.grey;
 
 const Color kActiveLow = Colors.red;
@@ -27,6 +27,17 @@ const TextStyle kTextFieldStyle = TextStyle(
   fontSize: 22,
   fontWeight: FontWeight.bold,
   color: kActiveColor,
+);
+
+const TextStyle kTextSpanActiveStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+  color: Colors.teal,
+);
+
+const TextStyle kTextSpanInactiveStyle = TextStyle(
+  fontSize: 18,
+  color: Colors.black54,
 );
 
 const BorderRadius kBorderRadius15 = BorderRadius.all(Radius.circular(15));

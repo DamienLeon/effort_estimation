@@ -97,7 +97,26 @@ class EffortPrimaryScreen extends StatelessWidget {
         color: Colors.blue,
         child: TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, ProductAttributesScreen.route);
+            if (context.read(projectTypeProvider).data == 3)
+              showDialog(
+                context: context,
+                builder: (context) => Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  child: Container(
+                    height: 100,
+                    child: Center(
+                      child: Text(
+                        "Choose the type of project",
+                        style: kTextSpanActiveStyle,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            else
+              Navigator.pushNamed(context, ProductAttributesScreen.route);
           },
           child: Text(
             "Next",

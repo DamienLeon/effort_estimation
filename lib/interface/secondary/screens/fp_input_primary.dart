@@ -139,13 +139,34 @@ class FPInputScreen extends StatelessWidget {
         color: Colors.blue,
         child: TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, FPComplexityFactors.route);
+            if (context.read(externalInputProvider).data == 0 ||
+                context.read(externalOutputProvider).data == 0 ||
+                context.read(externalInquiryProvider).data == 0 ||
+                context.read(externalInterfaceFileProvider).data == 0 ||
+                context.read(internalLogicalFileProvider).data == 0)
+              showDialog(
+                context: context,
+                builder: (context) => Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  child: Container(
+                    height: 100,
+                    child: Center(
+                      child: Text(
+                        "Values cannot be empty",
+                        style: kTextSpanActiveStyle,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            else
+              Navigator.pushNamed(context, FPComplexityFactors.route);
           },
           child: Text(
             "Next",
-            style: TextStyle(
-              color: Colors.white,
-            ),
+            style: kButtonStyle,
           ),
         ),
       ),

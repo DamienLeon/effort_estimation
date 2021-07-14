@@ -40,6 +40,7 @@ class ComplexitySliderTile extends StatelessWidget {
             divisions: 5,
             label: sliderLabel,
             onChanged: (double) => setSliderValue(double),
+            activeColor: kActiveColor,
             inactiveColor: kInactiveColor,
           ),
           const SizedBox(

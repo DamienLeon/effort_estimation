@@ -32,7 +32,7 @@ class Block extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: Colors.green,
+          color: Color(0xff004d40),
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Column(
         children: [
@@ -50,7 +50,10 @@ class Block extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.delete),
+                icon: Icon(
+                  Icons.delete,
+                  color: Colors.white,
+                ),
                 onPressed: () => deleteBlock(),
               ),
             ],

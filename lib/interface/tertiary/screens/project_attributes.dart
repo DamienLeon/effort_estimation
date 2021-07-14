@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:software_estimation/application/provider_data_primary/primary_providers.dart';
+import 'package:software_estimation/application/provider_data_secondary/secondary_providers.dart';
 import 'package:software_estimation/application/provider_data_tertiary/tertiary_data_providers.dart';
 import 'package:software_estimation/application/provider_data_tertiary/tertiary_providers.dart';
 import 'package:software_estimation/data/class_data/primary/project_block.dart';
@@ -172,6 +173,20 @@ class ProjectAttributesScreen extends StatelessWidget {
 
             context.read(projectsListProvider).calculateTotalValues(
                 context.read(currentProjectProvider).currentProject);
+
+            // Reset all data values to default
+            context.read(externalInputProvider).resetData();
+            context.read(externalOutputProvider).resetData();
+            context.read(externalInquiryProvider).resetData();
+            context.read(externalInterfaceFileProvider).resetData();
+            context.read(internalLogicalFileProvider).resetData();
+            context.read(projectComplexityDataProvider).resetData();
+            context.read(complexityFactorsDataProvider).resetData();
+            context.read(projectTypeProvider).resetData();
+            context.read(productAttributesProvider).resetData();
+            context.read(hardwareAttributesProvider).resetData();
+            context.read(personalAttributesProvider).resetData();
+            context.read(projectAttributesProvider).resetData();
 
             // TODO : Go to ProjectBlock Screen
             Navigator.popUntil(context, (_) => _.isFirst);

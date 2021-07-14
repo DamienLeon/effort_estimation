@@ -11,26 +11,37 @@ class ProjectsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Text("Projects"),
-            Consumer(builder: (context, watch, child) {
-              final projects = watch(projectsListProvider);
-              return ListView.builder(
-                shrinkWrap: true,
-                itemCount: projects.projectsList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  if (projects.projectsList.length == 0)
-                    // TODO: Customized text
-                    return SizedBox();
-                  else {
+      body: Consumer(builder: (context, watch, child) {
+        final projects = watch(projectsListProvider);
+        return SafeArea(
+          child: projects.projectsList.length == 0
+              ? Center(
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Click on ',
+                      style: kTextSpanInactiveStyle,
+                      children: [
+                        TextSpan(
+                          text: 'New Project',
+                          style: kTextSpanActiveStyle,
+                        ),
+                        TextSpan(
+                          text: ' to add a new Project',
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: projects.projectsList.length,
+                  itemBuilder: (BuildContext context, int index) {
                     final obj = projects.projectsList[index];
                     return Container(
                       margin: EdgeInsets.only(top: 15, left: 15, right: 15),
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: Color(0xff004d40),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,7 +63,10 @@ class ProjectsScreen extends StatelessWidget {
                             ),
                           ),
                           IconButton(
-                            icon: Icon(Icons.delete),
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                            ),
                             // Delete Project
                             onPressed: () {
                               showDialog(
@@ -77,7 +91,7 @@ class ProjectsScreen extends StatelessWidget {
                                               Container(
                                                 padding: EdgeInsets.all(5),
                                                 decoration: BoxDecoration(
-                                                    color: Colors.green,
+                                                    color: Color(0xff004d40),
                                                     borderRadius:
                                                         BorderRadius.all(
                                                             Radius.circular(
@@ -105,13 +119,10 @@ class ProjectsScreen extends StatelessWidget {
                         ],
                       ),
                     );
-                  }
-                },
-              );
-            }),
-          ],
-        ),
-      ),
+                  },
+                ),
+        );
+      }),
       floatingActionButton: CustomFloatingButton(
         primaryTitle: "New Project",
         dialogTitle: "Create Project",
